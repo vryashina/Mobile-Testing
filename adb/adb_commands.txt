@@ -1,0 +1,29 @@
+﻿1.Посмотреть список подключенных девайсов
+adb devices
+2.Установить приложение на телефон
+adb install app
+3.Список всех приложений, которые установлены на телефон
+adb shell 'pm list packages -f'
+4.Поиск конкретного приложения
+adb shell 'pm list packages -f'|grep app
+5.Удаление приложения
+adb uninstall com.android.app
+6.Поиск логов конкретного приложения
+adb logcat | grep -rnw "app"
+7.Запись логов конкретного приложения и сохранение в файл на компьютер
+adb logcat | grep -rmw "app" > log_app.log
+8.Чистка логов
+adb logcat -c
+9.Сделать скриншот
+adb shell screencap /storage/DCIM/123.png
+10.Передать файл с телефона на компьютер
+adb pull /storage/DCIM/123.png D://adb
+11.Сделать скриншот на телефон и скачать на компьютер одной командой
+adb shell screencap /storage/DCIM/123.png && adb pull /storage/DCIM/123.png D://adb
+12.Сделать бэкап
+adb backup -apk -shared all -f /path/backup.ad
+13.Восстановление после бэкапа
+adb restore /path/backup.ad
+14.Подключение через wi-fi
+adb connect ip : port
+
